@@ -17,6 +17,7 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  root: path.resolve(__dirname, 'web'),
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for this app, even if
@@ -24,11 +25,20 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    fs: {
+      allow: [path.resolve(__dirname)],
+    },
+  },
   resolve: {
     alias: {
       // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  build: {
+    outDir: path.resolve(__dirname, 'dist'),
+    emptyOutDir: true,
   },
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
