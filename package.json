@@ -4,10 +4,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "node ./tools/build.mjs",
-    "build:app": "node ./node_modules/vite/bin/vite.js build",
-    "dev": "vite",
-    "postbuild": "node ./tools/prepare-static-preview.mjs"
+    "build": "vite build",
+    "dev": "vite"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
